@@ -1,0 +1,865 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <style>
+                .page-preloader {
+                        position: fixed;
+                        left: 0;
+                        top: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: #fbfbfb;
+                        z-index: 9999991005000;
+                }
+                .page-preloader .preloader-itself {
+                        width: 110px;
+                        height: 110px;
+                        position: absolute;
+                        left: 50%;
+                        top: 50%;
+                        background: url('preloader.gif') no-repeat 50% 50%;
+                        margin: -55px 0 0 -55px;
+                }
+        </style>
+                <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title>Barebones</title>
+        <meta name="description" content="Barebones HTML project">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui">
+
+        <!-- Favicon block -->
+        <!-- Images generated from a single 260x260 image by http://realfavicongenerator.net/ -->
+        <link rel="shortcut icon" href="favicon.ico">
+
+        <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
+        <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
+        <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
+        <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
+        <link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png">
+        <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
+        <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png">
+        <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
+        <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
+
+        <link rel="icon" type="image/png" href="favicon-192x192.png" sizes="192x192">
+        <link rel="icon" type="image/png" href="favicon-160x160.png" sizes="160x160">
+        <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
+        <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+
+        <meta name="msapplication-TileColor" content="#d10d3f">
+        <meta name="msapplication-TileImage" content="mstile-144x144.png">
+        <meta name="msapplication-config" content="browserconfig.xml">
+        <!-- / Favicon block -->
+
+        <link rel="stylesheet" href="styles/main.css">
+
+        
+
+        
+        <!-- Cached build -->
+        <script src="scripts/vendor/modernizr-2.8.3.min.js"></script>
+        <!-- / 
+
+        <!-- -->
+
+    </head>
+    <body>
+    <div class="modal fade order-modal" id="order-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <a type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                    <h4 class="modal-title" id="myModalLabel">Оставьте заявку и мы с вами свяжемся</h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Имя" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="phone" placeholder="Телефон" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" name="email" class="form-control">
+                        </div>
+                        <button class="btn">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade thank-you-modal" id="thank-you-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <a type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+            <div class="modal-content">
+                <div class="thank-you-img">
+                    <img src="images/thank-you-img.jpg" alt="">
+                </div>
+                <div class="text">
+                    <h2>Спасибо за заявку!<br>Мы обязательно с вами свяжемся</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade details-modal" id="details-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <a type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></a>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-xs-12">
+                        <div class="img-cont">
+                            <img src="images/pop-up-bg.jpg" alt="">
+                        </div>
+                        <div class="modal-main">
+                            <div class="header-modal">
+                                <div class="header-left">
+                                    <h3>Smart Flesh</h3>
+                                </div>
+                                <div class="header-right">
+                                    <h3>Стоимость - <span class="yellow-bold">9000</span> руб. за 5 дней</h3>
+                                </div>
+                            </div>
+                            <div class="modal-cont">
+                                <div class="first-block">
+                                    <h3 class="yellow-bold">1000-1200 <span class="yellow-kkal">ккал</span></h3>
+                                    <p>Программа быстрого сброса веса. За счёт грамотно сбалансированного меню формируется привычка есть меньше, но чаще. При этом организм избавляется от шлаков и токсинов, получая только самые нужные элементы. Рекомендуется на срок не более 2-х недель</p>
+                                </div>
+                                <div class="second-block">
+                                    <h3 class="yellow-bold">Пример меню</h3>
+                                    <div class="menu-row">
+                                        <div class="menu-block">
+                                            <h4>Завтрак</h4>
+                                            <ul>
+                                                <li>Яйцо пашот</li>
+                                                <li>Тост мультизерновой</li>
+                                                <li>Спаржа на гриле</li>
+                                            </ul>
+                                        </div>
+                                        <div class="menu-block">
+                                            <h4>Обед</h4>
+                                            <ul>
+                                                <li>Овощной суп-пюре</li>
+                                                <li>Диетический чикенбургер</li>
+                                                <li>Запеченная свекла с шариками
+                                                    из брынзы в черном и белом к
+                                                    унжуте</li>
+                                            </ul>
+                                        </div>
+                                        <div class="menu-block">
+                                            <h4>Ужин</h4>
+                                            <ul>
+                                                <li>Бабочки из форели в соусе терияки с овощной сальсой</li>
+                                            </ul>
+                                        </div>
+
+                                    </div>
+                                    <div class="menu-row">
+                                        <div class="menu-block">
+                                            <h4>Второй завтрак</h4>
+                                            <ul>
+                                                <li>Домашний йогурт</li>
+                                            </ul>
+                                        </div>
+                                        <div class="menu-block">
+                                            <h4>Полдник</h4>
+                                            <ul>
+                                                <li>Морковные палочки</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-btn">
+                            <div class="btn">Сделать заказ</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+        <div class="layout-header"><!-- THIS IS "layout/header.partial.html" BLOCK -->
+                    <div class="layout-container">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="left-header">
+                                    <div class="logo">
+                                        <a href="#" class="logo-link">
+                                            <img src="images/logo.png" alt="">
+                                        </a>
+                                    </div>
+                                </div>
+                                <ul class="nav">
+                                <a type="button" class="close close-menu"><span aria-hidden="true">×</span></a>
+                                    <li><a href="">Кто мы</a></li>
+                                    <li><a href="">Программы</a></li>
+                                    <li><a href="">Как это работает</a></li>
+                                    <li><a href="">Блог</a></li>
+                                    <li><a href="">Контакты</a></li>
+                                </ul>
+                                <div class="social-header">
+                                    <div class="facebook">
+                                        <a href="#" class="fr-vk"></a>
+                                        <a href="#" class="fr-fb"></a>
+                                    </div>
+                                    <div class="vk"></div>
+                                </div>
+                                <div class="right-header">
+                                    <div class="order-btn-cont">
+                                        <button class="btn order-btn">Заказать</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="menu-icon"><div class="hamb"></div></div>
+
+        </div>                      <!-- THIS IS "layout/header.partial.html" BLOCK END-->
+
+
+<!--CAROUSEL-->
+                    <section class="head-section">
+                        <div class="head-wrap">
+                            <div id="myCarousel" class="carousel slide carousel-top" data-ride="carousel">
+
+
+
+                                <div class="carousel-inner" role="listbox">
+                                    <div class="button-cont"><button class="btn">Сделать заказ</button></div>
+                                    <div class="item active">
+                                        <div class="container">
+                                            <div class="layout-container">
+                                                <div class="head-content">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <h2>К здоровому питанию приходят за результатом, мы делаем так, что вы влюбляетесь в процесс</h2>
+                                                            <div class="row">
+                                                                <div class="col-lg-2 -col-md-2 col-sm-2"></div>
+                                                                <div class="col-md-8 col-lg-8 col-sm-12 col-xs-12">
+                                                                    <h3>Smart Calories - это сбалансированное здоровое питание 5 раз в день с доставкой по Москве</h3>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="container">
+                                            <div class="layout-container">
+                                                <div class="head-content">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                            <h2>К здоровому питанию приходят за результатом, мы делаем так, что вы влюбляетесь в процесс</h2>
+                                                            <div class="row">
+                                                                <div class="col-lg-2 -col-md-2 col-sm-2"></div>
+                                                                <div class="col-md-8 col-lg-8 col-sm-12">
+                                                                    <h3>Smart Calories - это сбалансированное здоровое питание 5 раз в день с доставкой по Москве</h3>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <div class="container">
+                                            <div class="layout-container">
+                                                <div class="head-content">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                                            <h2>К здоровому питанию приходят за результатом, мы делаем так, что вы влюбляетесь в процесс</h2>
+                                                            <div class="row">
+                                                                <div class="col-lg-2 -col-md-2 col-sm-2"></div>
+                                                                <div class="col-md-8 col-lg-8 col-sm-12">
+                                                                    <h3>Smart Calories - это сбалансированное здоровое питание 5 раз в день с доставкой по Москве</h3>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="item">
+                                        <div class="container">
+                                            <div class="layout-container">
+                                                <div class="head-content">
+                                                    <div class="row">
+                                                        <div class="col-lg-12 col-md-12 col-sm-12">
+                                                            <h2>К здоровому питанию приходят за результатом, мы делаем так, что вы влюбляетесь в процесс</h2>
+                                                            <div class="row">
+                                                                <div class="col-lg-2 -col-md-2 col-sm-2"></div>
+                                                                <div class="col-md-8 col-lg-8 col-sm-12">
+                                                                    <h3>Smart Calories - это сбалансированное здоровое питание 5 раз в день с доставкой по Москве</h3>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="carousel-control-wrap">
+                                    <div class="layout-container carousel-controllers-container">
+                                        <div class="row"><div class="col-lg-12 col-md-12">
+                                            <ol class="carousel-indicators">
+                                                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                                <li data-target="#myCarousel" data-slide-to="1"></li>
+                                                <li data-target="#myCarousel" data-slide-to="2"></li>
+                                                <li data-target="#myCarousel" data-slide-to="3"></li>
+                                            </ol>
+                                        </div></div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12">
+                                                <div class="counter">
+                                                    <span class="bold-num">1</span>/<span class="number-of-slides">4</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12 col-md-12">
+                                                <a class="carousel-control fr-arrow left" href="#myCarousel" role="button" data-slide="prev">
+                                                </a>
+                                                <a class="carousel-control fr-arrow right" href="#myCarousel" role="button" data-slide="next">
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="slide-background-wrap">
+                                <div style="background-image: url('images/main-bg.png');
+                                        background-size: cover; background-attachment: fixed; background-position: bottom" class="slide-background active"></div>
+                                <div style="background-image: url('images/main-bg-2.jpg'); background-attachment: fixed;
+                                        background-size: cover; background-position: bottom" class="slide-background"></div>
+                                <div style="background-image: url('images/main-bg.png');
+                                        background-size: cover; background-attachment: fixed; background-position: bottom" class="slide-background"></div>
+                                <div style="background-image: url('images/main-bg-2.jpg'); background-attachment: fixed;
+                                        background-size: cover; background-position: bottom" class="slide-background"></div>
+                            </div>
+                        </div>
+                        <div class="arrow-down-scroll">
+                            <span class="fr-arrow"></span>
+                        </div>
+                    </section>
+
+<!--CAROUSEL-END-->
+
+
+    <div class="layout-content">
+        <section class="allow-you">
+            <div class="square"></div>
+            <div class="layout-container">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 col-xs-12">
+                        <h3 class="green-header">Позвольте себе питаться здорово со SmartCalories</h3>
+                        <div class="header-descr"><h4>Это здорово и вкусно</h4></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="allow-wrap">
+
+
+
+                            <div class="items-wrap-small">
+                                <div class="col-sm-1"></div>
+                                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                                    <div class="allow-block">
+
+                                        <div class="img-cont">
+                                            <img src="images/first-img.svg" alt="">
+                                        </div>
+                                        <div class="descr">
+                                            <div class="header-cont">
+                                                <h5 class="orange-header">Рацион<br> от диетолога</h5>
+                                            </div>
+                                            <p>Оптимальный баланс каллорий и полезных веществ</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2"></div>
+                                <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                                    <div class="allow-block">
+                                        <div class="img-cont">
+                                            <img src="images/second-image.svg" alt="">
+                                        </div>
+                                        <div class="descr">
+                                            <div class="header-cont">
+                                                <h5 class="green-header">5 раз в день<br>
+                                                    7 дней в неделю</h5>
+                                            </div>
+                                            <p>Работа не помешает<br>
+                                                здоровому стилю жизни.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1"></div>
+
+                            </div>
+
+                            <div class="col-sm-1"></div>
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                                <div class="allow-block">
+                                    <div class="img-cont">
+                                        <img src="images/third-img.svg" alt="">
+                                    </div>
+                                    <div class="descr">
+                                        <div class="header-cont">
+                                            <h5 class="red-header">Доставка домой<br>
+                                                или в офис</h5>
+                                        </div>
+                                        <p>Утром вы получаете<br>
+                                            еду на весь день</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2"></div>
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                                <div class="allow-block">
+                                    <div class="img-cont">
+                                        <img src="images/fourth-img.svg" alt="">
+                                    </div>
+                                    <div class="descr">
+                                        <div class="header-cont">
+                                            <h5 class="light-green-header">Это вкусно!</h5>
+                                        </div>
+                                        <p>Каждый день - новые блюда разных мировых кухонь. Вы попробуете новое и насладитесь </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-1"></div>
+
+
+                    </div>
+                </div>
+            </div>
+        </section>
+       <section class="who-we">
+           <div class="header-divider"></div>
+           <div class="who-we-wrap">
+               <div class="layout-container">
+                   <div class="row">
+                       <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                           <div class="img-wrap">
+                               <img src="images/who-we-photo.png" alt="">
+                           </div>
+                       </div>
+                       <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12">
+                           <div class="descr-wrap">
+                               <h2 class="green">Идеолог SC</h2>
+                               <h2>SmartCalories - это личная история о том,<br> как любимое дело обьединяет людей</h2>
+                               <p>Здравствуйте! Меня зовут Саша. Я диетолог и очень люблю готовить. Два года назад я запустила эксперимент - собрала знакомых и предложила нам всем вместе сесть на очень странную диету.</p>
+                               <p>Первая странность: эта диета не была мучением. Удивительно, но ограничивая себя в калориях, мы не сужали, а расширяли рацион, пробуя всё новые невероятные блюда: гранолу с черникой, митболы в томатном соусе и многое другое.</p>
+                               <div class="hide-block-cntr">
+                                   <a href="#" class="">+</a>
+                               </div>
+                               <div class="hide-block">
+                               <p>Вторая странность: мы сидели на диете не по одиночке, а все вместе. Когда переходишь на здоровое питание - чувствуешь себя белой вороной. Очень сложно не сорваться, а поддержки нет. У нас было не так. Все участники программы активно общались друг с  другом, мотивировали, делились собственными успехами и неудачами. Атмосфера теплоты и дружелюбия помогала всем достигать цели.</p>
+                               <p>Мой эксперимент превратился в SmartCalories. Мы выросли из диеты для друзей в большой сервис, но главные принципы остались неизменными:</p>
+                                   <ul>
+                                       <li> Я знаю всех клиентов по именам</li>
+                                       <li>Я лично общаюсь с ними по почте и телефону, отвечаю на вопросы и подбадриваю в   тяжелые минуты когда хочется все бросить и вернутся к старому образу жизни</li>
+                                       <li>Я сама разрабатываю рацион и готовлю часть блюд</li>
+                                       <li>Я люблю слышать, что кто-то стал здоровее и счастливее, благодаря моему труду. И поэтому я делаю всё это</li>
+                                   </ul>
+                               </div>
+                               <div class="row">
+                                   <div class="col-lg-5 col-xs-12">
+                                       <div class="btn">Вступить в общество</div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </section>
+        <section class="programs">
+            <div class="header-divider"></div>
+            <div class="programs-wrap">
+                <div class="layout-container">
+                    <div class="row">
+                        <div class="programs-header">
+                            <h2 class="green-header center">Наши программы</h2>
+                        </div>
+                    </div>
+                    <div class="row cards-row">
+                        <div class="margin-row">
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="card-wrap">
+                                    <div class="card-number">1</div>
+                                    <div class="card-itself first-step">
+                                        <div class="card-header">
+                                            <h2 class="regular-header">Smart Flash</h2>
+                                            <div class="right-head">
+                                                <h2 class="bold-headr">1000-1200</h2>
+                                                <span class="kkal">ккал</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-descr">
+                                            <p>Быстрый сброса веса. Формирование привычки есть меньше, но чаще. Срок:
+                                                не более 2х недель</p>
+                                        </div>
+                                        <div class="card-buttons">
+                                            <div class="button-cont">
+                                                <button data-toggle="modal" data-target="#order-modal" class="btn">Заказать</button>
+                                                <img src="images/button.svg" alt="">
+                                            </div>
+                                            <button data-toggle="modal" data-target="#thank-you-modal" class="btn btn-additional">Подробнее</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="card-wrap">
+                                    <div class="card-number">2</div>
+                                    <div class="card-itself second-step">
+                                        <div class="card-header">
+                                            <h2 class="regular-header">Smart Shape</h2>
+                                            <div class="right-head">
+                                                <h2 class="bold-headr">1500-1800</h2>
+                                                <span class="kkal">ккал</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-descr">
+                                            <p>Поддерживаем форму после сброса веса.
+                                                В рационе важные питательные элементы.</p>
+                                        </div>
+                                        <div class="card-buttons">
+                                            <div class="button-cont">
+                                                <button data-toggle="modal" data-target="#order-modal" class="btn">Заказать</button>
+                                                <img src="images/button.svg" alt="">
+                                            </div>
+                                            <button data-toggle="modal" data-target="#details-modal" class="btn btn-additional">Подробнее</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="card-wrap">
+                                    <div class="card-number">3</div>
+                                    <div class="card-itself third-step">
+                                        <div class="card-header">
+                                            <h2 class="regular-header">Smart Lifestyle</h2>
+                                            <div class="right-head">
+                                                <h2 class="bold-headr">2200</h2>
+                                                <span class="kkal">ккал</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-descr">
+                                            <p>Оптимальная суточная норма здорового
+                                                питания для энергичной и полноценной жизни.</p>
+                                        </div>
+                                        <div class="card-buttons">
+                                            <div class="button-cont">
+                                                <button data-toggle="modal" data-target="#order-modal" class="btn">Заказать</button>
+                                                <img src="images/button.svg" alt="">
+                                            </div>
+                                            <button data-toggle="modal" data-target="#details-modal" class="btn btn-additional">Подробнее</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="margin-row">
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="card-wrap">
+                                    <div class="card-number">4</div>
+                                    <div class="card-itself fourth-step">
+                                        <div class="card-header">
+                                            <h2 class="regular-header">Smart Sport</h2>
+                                            <div class="right-head"><span class="kkal">от</span>
+                                                <h2 class="bold-headr">3000</h2>
+                                                <span class="kkal">ккал</span>
+                                            </div>
+                                        </div>
+                                        <div class="card-descr">
+                                            <p>Усиленное питание при спортивных нагрузках. Восполняем энергетические затраты.</p>
+                                        </div>
+                                        <div class="card-buttons">
+                                            <div class="button-cont">
+                                                <button data-toggle="modal" data-target="#order-modal" class="btn">Заказать</button>
+                                                <img src="images/button.svg" alt="">
+                                            </div>
+                                            <button data-toggle="modal" data-target="#details-modal" class="btn btn-additional">Подробнее</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="card-wrap">
+                                    <div class="card-number">5</div>
+                                    <div class="card-itself fifth-step">
+                                        <div class="card-header">
+                                            <h2 class="regular-header">Smart Plant</h2>
+                                        </div>
+                                        <div class="card-descr">
+                                            <p>Разнообразное сбалансированное меню для вегетарианцев</p>
+                                        </div>
+                                        <div class="card-buttons">
+                                            <div class="button-cont">
+                                                <button class="btn" data-toggle="modal" data-target="#order-modal">Заказать</button>
+                                                <img src="images/button.svg" alt="">
+                                            </div>
+                                            <button data-toggle="modal" data-target="#details-modal" class="btn btn-additional">Подробнее</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
+                                <div class="card-wrap">
+                                    <div class="card-number">6</div>
+                                    <div class="card-itself sixth-step">
+                                        <div class="card-header">
+                                            <h2 class="regular-header">Smart Kids</h2>
+                                        </div>
+                                        <div class="card-descr">
+                                            <p>Готовые боксы с едой для правильного рациона ребёнка на весь день.</p>
+                                        </div>
+                                        <div class="card-buttons">
+                                            <div class="button-cont">
+                                                <button data-toggle="modal" data-target="#order-modal" class="btn">Заказать</button>
+                                                <img src="images/button.svg" alt="">
+                                            </div>
+                                            <button data-toggle="modal" data-target="#details-modal" class="btn btn-additional">Подробнее</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="care">
+            <div class="header-divider"></div>
+            <div class="layout-container">
+                <div class="row">
+                    <div class="col-lg-5 col-md-5 col-sm-12 col-xs-12">
+                        <div id="CareCarousel" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img class="first-slide" src="images/telephone.png" alt="First slide">
+                                </div>
+                                <div class="item">
+                                    <img class="first-slide" src="images/telephone.png" alt="First slide">
+                                </div>
+                                <div class="item">
+                                    <img class="first-slide" src="images/telephone.png" alt="First slide">
+                                </div>
+                            </div>
+                            <div class="carousel-control-wrap">
+                                        <ol class="carousel-indicators">
+                                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                                        </ol>
+                                            <a class="carousel-control fr-arrow left" href="#CareCarousel" role="button" data-slide="prev">
+                                            </a>
+                                            <a class="carousel-control fr-arrow right" href="#CareCarousel" role="button" data-slide="next">
+                                            </a>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-1 col-md-1 "></div>
+                    <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                        <div class="care-descr">
+                            <div class="care-descr-header">
+                                <h2>Мы не только готовим для вас.</h2>
+                                <h1>Мы о Вас беспокоимся</h1>
+                            </div>
+                            <div class="care-descr-text">
+                                <p>Даже самая вкусная диета - небольшое испытание.
+                                    SmartCalories - это сообщество, где вас всегда поддержат, дадут совет или мотивируют собственным примером.</p>
+                            </div>
+                            <div class="cared-descr-bottom-text">
+                                <p>
+                                    Еще не готовы полностью перейти на Smart Calories?
+                                    Проведите один день со здоровой едой!
+                                </p>
+                            </div>
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                    <button class="btn">Заказать пробный день</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="how-it-works">
+            <div class="header-divider"></div>
+            <div class="layout-container">
+                <div class="how-it-works-wrap">
+                    <div class="row">
+                        <div class="items-wrap-small">
+                            <div class="col-sm-1"></div>
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                                <div class="how-card">
+                                    <div class="how-num">1</div>
+                                    <div class="arrow-cont"><img src="images/arrow-br.png" alt=""></div>
+                                    <div class="how-img"><img src="images/how-f.svg" alt=""></div>
+                                    <div class="how-descr">
+                                        <p>Вы выбираете подходящую для себя программу  оставляете заявку</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-2"></div>
+                            <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                                <div class="how-card">
+                                    <div class="how-num">2</div>
+                                    <div class="arrow-cont"><img src="images/arrow-br.png" alt=""></div>
+                                    <div class="how-img"><img src="images/how-s.svg" alt=""></div>
+                                    <div class="how-descr">
+                                        <p>Мы связываемся с вами и обсуждаем детали. Например, любите ли вы свинину, как относитесь к латиноамериканской кухне, в котором часу вам удобнее получать доставку</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-1"></div>
+                        </div>
+                        <div class="col-sm-1"></div>
+                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                            <div class="how-card">
+                                <div class="how-num">3</div>
+                                <div class="arrow-cont"><img src="images/arrow-br.png" alt=""></div>
+                                <div class="how-img"><img src="images/how-t.svg" alt=""></div>
+                                <div class="how-descr">
+                                    <p>Утром следующего дня вы получаете 5 коробочек от SmartCalories, в которых - вся ваша еда на сегодня. Их сопровождает инструкция о том, что и когда кушать.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-2"></div>
+                        <div class="col-lg-3 col-md-3 col-sm-4 col-xs-12">
+                            <div class="how-card">
+                                <div class="how-num">4</div>
+                                <div class="how-img"><img src="images/how-ft.svg" alt=""></div>
+                                <div class="how-descr">
+                                    <p>Все что вам остается - разогреть в назначенное время содержимое той или иной коробочки в микроволновке или заправить его (если речь о салате)</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="every-day">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-xs-12">
+                                <h2 class="green-header center">Теперь так будет каждый день, пока вы с нами!</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-4"></div>
+                            <div class="col-lg-4 col-md-4 col-xs-12"><button class="btn">Заказать</button></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="blog">
+            <div class="header-divider"></div>
+            <div class="blog-wrapper">
+               <div class="layout-container">
+                 <div class="post">
+                     <div class="row">
+                         <div class="col-lg-5 col-md-5 col-sm-5 col-xs-12">
+                             <div class="blog-thumbnail">
+                                 <img src="images/blog-img.png" alt="">
+                             </div>
+                         </div>
+                         <div class="col-lg-7 col-md-7 col-sm-7 col-xs-12">
+                             <div class="blog-header">
+                                 <h2 class="regular-header">Заголовок блога</h2>
+                             </div>
+                             <div class="blog-text">
+                                 <p> Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque enim facilis magnam porro repellat sunt ullam ut? A dignissimos exercitationem iusto maxime minus numquam, odio praesentium quo unde. Accusantium, vel. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores ipsa numquam quaerat unde ut. Ab accusamus consectetur, cum cupiditate deserunt explicabo iste labore, quis reprehenderit sunt ut vel! Enim, voluptas.</p>
+                                 <a href="#">Подробнее</a>
+                             </div>
+                         </div>
+                     </div>
+                 </div>
+               </div>
+            </div>
+        </section>
+    </div>
+        <div class="layout-footer">
+    <div class="layout-container">
+        <div class="row">
+            <div class="col-lg-2 col-md-2 col-sm-4">
+                <div class="footer-item">
+                    <div class="item-head"><span class="fr-map"></span><h3>адрес</h3></div>
+                    <div class="item-content">
+                        <p>lorem ipsum dolor sita amet coniectur dum sumus videsus </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1 col-md-1">
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-4">
+                <div class="footer-item phone">
+                    <div class="item-head"><span class="fr-phone"></span><h3>телефон</h3></div>
+                    <div class="item-content">
+                        <p>+78054 544 44 44</p>
+                        <p>+78054 544 44 44</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1 col-md-1">
+            </div>
+            <div class="col-lg-2 col-md-2 col-sm-4">
+                <div class="footer-item">
+                    <div class="item-head"><span class="fr-mail"></span><h3>email</h3></div>
+                    <div class="item-content">
+                        <p>example@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-1 col-md-1">
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+                <button class="btn">Заказать программу</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+        
+
+        <!-- -->
+
+        <script>window.jQuery || document.write('<script src="scripts/vendor/jquery-2.1.3.min.js"><\/script>')</script>
+
+        
+
+        
+        <!-- Cached build -->
+        <script src="scripts/main.min.js"></script>
+        <!-- / 
+
+        <!-- -->
+
+        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <!-- <script>
+            (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+            m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+            })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+            ga('create', 'UA-XXXXX-X', 'auto');
+            ga('send', 'pageview');
+        </script> -->
+
+
+    </body>
+</html>
